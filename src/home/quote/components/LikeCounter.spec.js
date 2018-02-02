@@ -1,10 +1,10 @@
-import expect from 'expect';
-describe('empty', () => {
+// import expect from 'expect';
+// describe('empty', () => {
 
-  it('should work', () => {
-    expect(true).toEqual(true);
-  });
-});
+//   it('should work', () => {
+//     expect(true).toEqual(true);
+//   });
+// });
 
 
 // import React from 'react';
