@@ -10,4 +10,5 @@ The video lessons that go along with this code are in [the "React Testing Cookbo
 
 1. `npm install`
 1. `npm test` to run tests
+1. node_modules/parallelshell/index.js line 105, change it to: `cwd: process.cwd()`
 1. `npm run dev` and go to `localhost:8080` to run app and tests at the same time
