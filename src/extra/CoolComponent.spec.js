@@ -1,6 +1,8 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
+import expectJSX from 'expect-jsx';
+expect.extend(expectJSX);
 
 const CoolComponent = ({greeting}) => (
   <div>
@@ -11,10 +13,11 @@ const CoolComponent = ({greeting}) => (
 
 // shallow renderer test for stateless functional components
 describe('CoolComponent', () => {
-  it('should...', () => {
+  it('should render the greeting', () => {
     const renderer = TestUtils.createRenderer();
     renderer.render(<CoolComponent greeting="hello world" />);
-    const output = renderer.getRenderOutput();
-    console.log(output);
+    const actual = renderer.getRenderOutput();
+    const expected =<div>hello world</div>;
+    expect(actual).toIncludeJSX(expected);
   });
 });
