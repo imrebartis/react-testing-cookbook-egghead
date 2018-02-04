@@ -1,21 +1,15 @@
-// import expect from 'expect';
-// describe('empty', () => {
+import React from 'react';
+import TestUtils from 'react-addons-test-utils';
+import expect from 'expect';
+import LikeCounter from './LikeCounter';
 
-//   it('should work', () => {
-//     expect(true).toEqual(true);
-//   });
-// });
+describe('LikeCounter', () => {
 
-
-// import React from 'react';
-// import TestUtils from 'react-addons-test-utils';
-// import expect from 'expect';
-// import likeCounter from './LikeCounter';
-
-// describe('LikeCounter', () => {
-
-//   it('should be a link', function() => {
-//     const renderer = TestUtils.createRenderer();
-//     renderer.render(<LikeCounter count={5} />);
-//   });
-// });
+  it('should be a link', () => {
+    const renderer = TestUtils.createRenderer();
+    renderer.render(<LikeCounter count={5} />);
+    const actual = renderer.getRenderOutput().type;
+    const expected = 'a';
+    expect(actual).toEqual(expected);
+  });
+});
