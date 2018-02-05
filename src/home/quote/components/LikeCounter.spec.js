@@ -1,23 +1,19 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
+// the expect-jsx library helps us make sure that the LikeCounter component
+// is outputting the string five likes,
+// regardless where those five likes are in the component tree
+import expectJSX from 'expect-jsx';
+expect.extend(expectJSX);
 import LikeCounter from './LikeCounter';
 
 describe('LikeCounter', () => {
- function renderLikeCounter(isActive) {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(<LikeCounter count={5} isActive={isActive} />);
-    return renderer.getRenderOutput().props.className
-        .includes('LikeCounter--active');
- };
-
- describe('isActive', () => {
-    it('should show the like count as active', () => {
-        expect(renderLikeCounter(true)).toEqual(true);
+    it('should render like counts', () => {
+        const renderer = TestUtils.createRenderer();
+        renderer.render(<LikeCounter count={5} />);
+        const actual = renderer.getRenderOutput();
+        const expected = '5 likes';
+        expect(actual).toIncludeJSX(expected);
     });
-
-    it('should show the like count as inactive', () => {
-        expect(renderLikeCounter(false)).toEqual(false);
-    });
- });
 });
